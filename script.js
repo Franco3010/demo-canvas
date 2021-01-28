@@ -12,6 +12,15 @@ window.onload = () => {
     ctx.fill();
   };
 
+  const paddle = {
+    x: 200,
+    y: 280,
+    width: 50,
+    height: 10,
+  };
+  let x = 200;
+  let y = 280;
+
   let accumulate = 0;
 
   (function loop() {
@@ -37,6 +46,14 @@ window.onload = () => {
     for (let ball of balls) {
       drawCircle(ctx, ball.x, ball.y, 10, "green");
     }
+
+    ctx.fillStyle = "blue";
+    ctx.fillRect(
+      paddle.x - paddle.width / 2,
+      paddle.y - paddle.height / 2,
+      paddle.width,
+      paddle.height
+    );
 
     requestAnimationFrame(loop);
   })();
